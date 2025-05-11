@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    color: black
+  }
+  
+  .error_text {
+    color: red;
+  }

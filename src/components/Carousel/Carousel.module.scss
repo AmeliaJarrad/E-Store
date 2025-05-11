@@ -1,0 +1,74 @@
+
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+
+    &__img {
+        width: 30%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+        
+        &:hover {
+        transform: scale(1.02);
+        }
+    }
+  }
+  .carousel__btn {
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // background-color: rgba(128, 55, 55, 0.5);
+    // color: rgb(209, 42, 42);
+    // font-size: 1.0 rem;
+    // border: 5px solid red;
+    // padding: 1rem;
+    // cursor: pointer;
+    // z-index: 1;
+    // transition: background-color 0.3s;
+    
+    &_prev {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        background-color: rgb(141, 137, 114);
+        border: 2px outset rgb(122, 114, 67);
+        border-radius: 50%;
+        
+       
+        &:hover {
+            background-color: rgb(148, 138, 82);
+            transform: scale(1.10);
+            }
+        &:active {
+            background-color: rgb(122, 114, 67); 
+            box-shadow: 0 3px #2b2a2a; 
+            border: 2px inset rgb(141, 137, 114); 
+        }
+    }
+    &_next {
+        position: absolute;
+        top: 50%;
+        right: 30%; 
+        background-color: rgb(141, 137, 114);
+        border: 2px outset rgb(122, 114, 67);
+        border-radius: 50%;
+        &:hover {
+            background-color: rgb(148, 138, 82);
+            transform: scale(1.10);
+            }
+        &:active {
+            background-color: rgb(122, 114, 67); 
+            box-shadow: 0 3px #2b2a2a; 
+            border: 2px inset rgb(141, 137, 114); 
+        }
+        
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.8);   
+    }
+
+  }
+ 

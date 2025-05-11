@@ -1,0 +1,31 @@
+.nav {
+    display: flex;
+    height: 6vh;
+    padding: 0 1em;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 3px solid black;
+    align-items: center;
+  
+    &_group {
+      display: flex;
+      gap: 1em;
+    }
+  
+    &_link {
+      text-decoration: none;
+      color: #4040fa;
+      &:hover {
+        scale: 1.05;
+        transition: 0.2s ease-in-out;
+        color: #ffb937;
+      }
+      &:visited {
+        color: #4040fa;
+        text-decoration: none;
+        &:hover {
+          color: #ffb937;
+        }
+      }
+    }
+  }

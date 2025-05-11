@@ -1,0 +1,9 @@
+.container {
+    border: 2px solid goldenrod;
+    border-style: outset;
+    border-radius: 3%;
+    box-shadow: 6px 6px 32px -8px rgba(0, 0, 0, 0.69);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+  }
