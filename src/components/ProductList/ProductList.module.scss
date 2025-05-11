@@ -3,7 +3,16 @@
     border-style: outset;
     border-radius: 3%;
     box-shadow: 6px 6px 32px -8px rgba(0, 0, 0, 0.69);
-    display: grid;
+    display: flex;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    padding-top: 60px;
   }
+
+h1 {
+    display: inline-block;
+    width: 100%;
+    
+}

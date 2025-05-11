@@ -1,5 +1,8 @@
 import { useRef } from 'react';
+
 import classes from './ProductForm.module.scss';
+
+
 
 export default function ProductForm({
   style = {},
@@ -10,6 +13,7 @@ export default function ProductForm({
     Description: '',
     Price: '',
     Quantity: '',
+    imgURL: '',
     isFavourite: false,
     isFeatured: false,
   },
@@ -21,10 +25,13 @@ export default function ProductForm({
     const form = formRef.current;
     const formData = new FormData(form);
     const formValues = Object.fromEntries(formData.entries());
+    console.log(formValues)
     onSubmit(formValues);
     form.reset();
   };
-  let Category = ['Beds', 
+  let Category = [
+    
+    'Beds', 
     'Curtains & Drapes', 
     'Decorative', 
     'Heating & Lighting', 
@@ -46,9 +53,14 @@ export default function ProductForm({
         <label htmlFor="Category">Category</label>
         <select
           id="categoryInput"
+          defaultValue={"chooser"}
           type="select"
-          name="category">
-            
+          name="Category"
+          required
+          
+          
+          >
+            <option disabled={true} value="chooser">--Choose an option --</option>
             {Category.map((e, index) => <option key={index} 
             value={e} >{e}</option>)}
         
@@ -59,39 +71,51 @@ export default function ProductForm({
         <label htmlFor="descriptionInput">Description</label>
         <textarea
           id="descriptionInput"
-          name="description"
+          name="Description"
           defaultValue={defaults.Description}
+          required
         ></textarea>
         <small className={classes.error_text}></small>
       </div>
+
+      //here I gotta put a controlled component checkbox, which will render
+      //Variants fields of:
+      // Name: Price: Quantity: isFavourite: and isFeatured: 
+
+
+
+
+
       <div className={classes.field}>
-        <label htmlFor="directorInput">Director</label>
+        <label htmlFor="nameInput">Name</label>
         <input
-          id="directorInput"
+          id="nameInput"
           type="text"
-          name="director"
-          defaultValue={defaults.director}
+          name="Name"
+          defaultValue={defaults.Name}
+          required
         />
         <small className={classes.error_text}></small>
       </div>
       <div className={classes.field}>
-        <label htmlFor="yearInput">Year</label>
+        <label htmlFor="priceInput">Price</label>
         <input
-          id="yearInput"
+          id="priceInput"
           type="number"
-          name="year"
-          defaultValue={defaults.year}
+          name="Price"
+          defaultValue={defaults.Price}
+          required
         />
         <small className={classes.error_text}></small>
       </div>
       <div className={classes.field}>
-        <label htmlFor="ratingInput">Rating</label>
+        <label htmlFor="quantityInput">Quantity</label>
         <input
-          id="ratingInput"
+          id="quantityInput"
           type="number"
-          name="rating"
-          step={0.1}
-          defaultValue={defaults.rating}
+          name="Quantity"
+          defaultValue={defaults.Quantity}
+          required
         />
         <small className={classes.error_text}></small>
       </div>
@@ -100,22 +124,38 @@ export default function ProductForm({
         <input
           id="imageInput"
           type="url"
-          name="imgUrl"
-          defaultValue={defaults.imgUrl}
+          name="imgURL"
+          defaultValue={defaults.imgURL}
+          required
         />
         <small className={classes.error_text}></small>
       </div>
       <div className={classes.field}>
-        <label htmlFor="reviewInput">Review</label>
-        <textarea
-          id="reviewInput"
-          name="review"
-          defaultValue={defaults.review}
-        ></textarea>
+        <label htmlFor="favInput">isFavourite </label>
+        <input
+          id="favInput"
+          type="checkbox"
+          name="isFavourite"
+          defaultChecked={false}
+          value={true || false}
+          
+        />
+        <small className={classes.error_text}></small>
+      </div>
+      <div className={classes.field}>
+        <label htmlFor="featInput"> isFeatured </label>
+        <input
+          id="featInput"
+          type="checkbox"
+          name="isFeatured"
+          defaultChecked={false}
+          value={true || false}
+          
+        />
         <small className={classes.error_text}></small>
       </div>
 
-      <button>{mode} Movie</button>
+      <button>{mode} Product </button>
     </form>
   );
 }

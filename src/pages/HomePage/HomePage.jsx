@@ -28,14 +28,14 @@ const HomePage = () => {
       ];
 
   return (
-    <main>
+    <section>
         <h1> Ri'saad's Furniture Bazaar</h1>
         <h2> Welcome friend, Khajiit has wares if you have coin</h2>
      
         <Carousel images={images}/>
         
         
-    </main>
+    </section>
   )
 }
 

@@ -26,7 +26,7 @@ export default function ProductCard({ product }) {
         <h5> Quantity in Stock: {product.Quantity}</h5>
         <h5> Price: {product.Price} gold</h5>
         <Link to={product.id}>See More</Link>
-        <div> <Link to={product.Variants}>Variants</Link> </div>
+        
         
       
     </article>

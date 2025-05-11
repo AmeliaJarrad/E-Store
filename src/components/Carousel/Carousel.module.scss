@@ -32,7 +32,7 @@
         position: absolute;
         top: 50%;
         left: 30%;
-        background-color: rgb(141, 137, 114);
+        background-color: rgb(192, 176, 84);
         border: 2px outset rgb(122, 114, 67);
         border-radius: 50%;
         
@@ -51,11 +51,11 @@
         position: absolute;
         top: 50%;
         right: 30%; 
-        background-color: rgb(141, 137, 114);
+        background-color: rgb(192, 176, 84);
         border: 2px outset rgb(122, 114, 67);
         border-radius: 50%;
         &:hover {
-            background-color: rgb(148, 138, 82);
+            background-color: rgb(226, 223, 55);
             transform: scale(1.10);
             }
         &:active {

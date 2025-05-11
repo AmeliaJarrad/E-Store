@@ -18,19 +18,19 @@ import { db } from '../../config/firestore';
     return { id: snapshot.id, ...snapshot.data() };
   };
   
-//   const convertFormValuesToMovie = (formValues) => {
-//     const { rating: ratingStr, year: yearStr, ...rest } = formValues;
-//     const rating = parseFloat(ratingStr);
-//     const year = parseInt(yearStr);
-//     return { rating, year, ...rest };
-//   };
+  const convertFormValuesToProduct = (formValues) => {
+    const { Price: priceStr, Quantity: quantityStr, ...rest } = formValues;
+    const Price = parseInt(ratingStr);
+    const Quantity = parseInt(quantityStr);
+    return { Price, Quantity, ...rest };
+  };
   
-//   export const createProduct = async (productData) => {
-//     const collectionRef = collection(db, 'furniture');
-//     const product = convertFormValuesToMovie(productData);
-//     const docRef = await addDoc(collectionRef, product);
-//     return docRef.id;
-//   };
+  export const createProduct = async (productData) => {
+    const collectionRef = collection(db, 'furniture');
+    const product = convertFormValuesToProduct(productData);
+    const docRef = await addDoc(collectionRef, product);
+    return docRef.id;
+  };
   
   export const deleteProductById = async (id) => {
     const docRef = doc(db, 'furniture', id);

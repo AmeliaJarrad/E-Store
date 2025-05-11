@@ -8,17 +8,18 @@ import { Link } from 'react-router';
     return (
         <article className={classes.card}>
             
-            <img src={imgURL} alt={Name} className={classes.image} />
-        <div className={classes.info}>
+           
+            
+            {/* <p>{description}</p> */}
+            <h3> {category} </h3>
             <h3>{Name}</h3>
-            <p>{description}</p>
-            <p>Category: {category}</p>
-            <p> Price: {Price} gold</p>
-            <p> Quantity: {Quantity}</p>
-            <p> Favourite: {isFavourite ? 'Yes' : 'No'}</p>
-            <p> Featured: {isFeatured ? 'Yes' : 'No'}</p>
+            <img src={imgURL} alt={Name} />
+            <h5> Quantity in Stock: {Quantity}</h5>
+            <h5> Price: {Price} gold</h5>
+            {/* <p> Favourite: {isFavourite ? 'Yes' : 'No'}</p>
+            <p> Featured: {isFeatured ? 'Yes' : 'No'}</p> */}
             <Link to={id}>See More</Link>
-        </div>
+        
         
     
         </article>
