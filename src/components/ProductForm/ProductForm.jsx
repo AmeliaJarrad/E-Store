@@ -6,7 +6,7 @@ import classes from './ProductForm.module.scss';
 
 export default function ProductForm({
   style = {},
-  onSubmit,
+  onSubmit ,
   mode = 'Create',
   defaults = {
     Category: ['Beds'],

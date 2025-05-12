@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 import classes from '../ProductPage/ProductDetails.module.scss'
-import ProductVariantCard from '../../components/ProductCard/ProductVariantCard';
+
 
 export default function  ProductDetails ({productData, resetFetch}) {
     const navigate = useNavigate();
@@ -14,6 +14,8 @@ export default function  ProductDetails ({productData, resetFetch}) {
                 <h2 key={`${productData.id}-${index}`}> </h2>
                 <h3>{variant.Name}</h3>
                 <img src={variant.imgURL} />
+                <p>{variant.description}</p>
+                <p>{productData.Description}</p>
                 <h5> Quantity in Stock: {variant.Quantity}</h5>
                 <h5> Price: {variant.Price} gold</h5>
             </span>
@@ -29,7 +31,7 @@ return (
                     alt={productData.Name}>
                     </img>
                     <p>{productData.Description}</p>
-                    <p>In Stock: {productData.Quantity}</p>
+                    <p>Quantity in Stock: {productData.Quantity}</p>
                     <p>Price: {productData.Price} gold</p>    
                 </div> 
             

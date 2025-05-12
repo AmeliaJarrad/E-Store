@@ -1,0 +1,42 @@
+.modal {
+    &_background {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: #26252586;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    &_content {
+      position: relative;
+      min-width: 60%;
+      z-index: 3;
+      background-color: white;
+  
+      &_inner {
+        padding: 1em;
+      }
+    }
+  
+    &_heading {
+      display: flex;
+      flex-direction: row;
+      padding: 0 1em;
+      justify-content: space-between;
+      width: 100%;
+      background-color: goldenrod;
+  
+      h2 {
+        display: inline-block;
+        color: black;
+        margin: 0;
+        font-size: 1.5em;
+      }
+    }
+  }

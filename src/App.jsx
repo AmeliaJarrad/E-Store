@@ -8,6 +8,8 @@ import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
 import ProductsProvider from './context/ProductsProvider';
 import ProductForm from './components/ProductForm/ProductForm';
 import ProductPage from './pages/ProductPage/ProductPage';
+import CreateProduct from './pages/CreateProduct/CreateProduct';
+import LiveProductsPage from './pages/LiveProductsPage/LiveProductsPage';
 
 function App() {
   useEffect(() => {
@@ -21,9 +23,10 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<AllProductsPage />} />
-          <Route path="/products/new" element={<ProductForm />} />
+          <Route path="/products" element={<LiveProductsPage />} />
+          {/* <Route path="/products" element={<AllProductsPage />} /> */}
           <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/products/new" element={<CreateProduct />} />
         </Routes>
         </ProductsProvider>
       

@@ -1,4 +1,4 @@
-import { collection, getDoc, getDocs, doc, onSnapshot } from 'firebase/firestore';
+import { collection, getDoc, getDocs, doc, onSnapshot, updateDoc, addDoc, deleteDoc } from 'firebase/firestore';
 
   
 import { db } from '../../config/firestore';
@@ -20,7 +20,7 @@ import { db } from '../../config/firestore';
   
   const convertFormValuesToProduct = (formValues) => {
     const { Price: priceStr, Quantity: quantityStr, ...rest } = formValues;
-    const Price = parseInt(ratingStr);
+    const Price = parseInt(priceStr);
     const Quantity = parseInt(quantityStr);
     return { Price, Quantity, ...rest };
   };
@@ -38,13 +38,13 @@ import { db } from '../../config/firestore';
     return id;
   };
   
-//   export const updateProductById = async (id, productData) => {
-//     console.log(id);
-//     const docRef = doc(db, 'furniture', id);
-//     const movie = convertFormValuesToMovie(productData);
-//     await updateDoc(docRef, movie);
-//     return { id, ...movie };
-//   };
+  export const updateProductById = async (id, productData) => {
+    console.log(id);
+    const docRef = doc(db, 'furniture', id);
+    const product = convertFormValuesToProduct(productData);
+    await updateDoc(docRef, product);
+    return { id, ...product };
+  };
   
   export const subscribeToProducts = (callback) => {
     console.log('Subscribe to furniture product data');
