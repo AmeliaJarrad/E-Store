@@ -22,8 +22,16 @@ const CartPage = () => {
                 <input
                   type="number"
                   min="1"
+                  max={item.Quantity}
                   value={item.quantity}
-                  onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+                  onChange={(e) => {
+                    const newQty = parseInt(e.target.value);
+                    if (newQty <= item.Quantity) {
+                        updateQuantity(item.id, newQty);
+                    } else {
+                        toast.warning(`Only ${item.Quantity} in stock`)
+                    }
+                }}
                 />
                 <button onClick={() => removeFromCart(item.id)}>Remove</button>
               </li>

@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Carousel from '../../components/Carousel/Carousel'
-import { carouselData } from '../../components/Carousel/CarouselData'
-
+import { useState, useEffect } from 'react';
+import { getAllProducts } from '../../services/product-services';
 
 
 
 
 const HomePage = () => {
-    const [index, setIndex] = useState()
+    const [featuredImages, setFeaturedImages] = useState([]);
 
-    const slideLeft = () => {
-        if (index - 1 >= 0) {
-          setIndex(index - 1);
-        }
-      };
+    useEffect(() => {
+        getAllProducts().then((products) => {
+          const images = getAllFeaturedImages(products);
+          setFeaturedImages(images);
+        });
+      }, []);
     
-      const slideRight = () => {
-        if (index + 1 <= carouselData.length - 1) {
-          setIndex(index + 1);
-        }
+    const getAllFeaturedImages = (products) => {
+        const productImages = products
+          .filter(p => p.isFeatured)
+          .map(p => p.imgURL);
+      
+        const variantImages = products.flatMap(product =>
+          (product.Variants || [])
+            .filter(variant => variant.isFeatured)
+            .map(variant => variant.imgURL)
+        );
+      
+        return [...productImages, ...variantImages];
       };
+  
     
       const images = [
         'https://placekeanu.com/50/50',
@@ -32,7 +42,7 @@ const HomePage = () => {
         <h1> Ri'saad's Furniture Bazaar</h1>
         <h2> Welcome friend, Khajiit has wares if you have coin</h2>
      
-        <Carousel images={images}/>
+        <Carousel images={featuredImages}/>
         
         
     </section>

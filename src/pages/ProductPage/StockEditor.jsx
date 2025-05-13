@@ -7,6 +7,7 @@ import { deleteProductById,
         updateProductById } from '../../services/product-services'
 import ProductForm from '../../components/ProductForm/ProductForm';
 import { useCart } from '../../context/CartProvider';
+import { toast } from 'react-toastify';
 
 
 const StockEditor = ({productData, resetFetch}) => {
@@ -34,7 +35,11 @@ const StockEditor = ({productData, resetFetch}) => {
         });
     };
 
-   
+    const handleAddToCart = (product) => {
+        addToCart(product);
+        toast.success(`${product.Name} added to cart!`);
+      };
+      
 
     if (productData.Variants && Array.isArray(productData.Variants)) {
         return productData.Variants.map((variant, index) => (
@@ -46,7 +51,7 @@ const StockEditor = ({productData, resetFetch}) => {
                 <p>{productData.Description}</p>
                 <h5> Quantity in Stock: {variant.Quantity}</h5>
                 <h5> Price: {variant.Price} gold</h5>
-                <Button onClick={() => addToCart(variant)}>Add to Cart</Button>
+                <Button onClick={() => handleAddToCart(variant)}>Add to Cart</Button>
 
                 <Button variants={['warning']} onClick={() => setIsUpdateModalOpen(true)}>
                 Update Product </Button>
@@ -93,7 +98,7 @@ const StockEditor = ({productData, resetFetch}) => {
         <p>{productData.Description}</p>
         <p>Quantity in Stock: {productData.Quantity}</p>
         <p>Price: {productData.Price} gold</p> 
-        <Button onClick={() => addToCart(productData)}>Add to Cart</Button> 
+        <Button onClick={() => handleAddToCart(productData)}>Add to Cart</Button> 
 
         <Button variants={['warning']} onClick={() => setIsUpdateModalOpen(true)}>
                 Update Product </Button>

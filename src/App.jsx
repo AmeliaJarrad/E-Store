@@ -12,6 +12,7 @@ import CreateProduct from './pages/CreateProduct/CreateProduct';
 import LiveProductsPage from './pages/LiveProductsPage/LiveProductsPage';
 import CartPage from './pages/CartPage/CartPage';
 import { CartProvider } from './context/CartProvider';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
         <ProductsProvider>
         
         <NavBar />
+        <ToastContainer position="bottom-right" autoClose={2000} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/cart" element={<CartPage />} />

@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from 'react';
+import { toast } from 'react-toastify';
 
 const CartContext = createContext();
 
@@ -7,9 +8,15 @@ export function CartProvider({ children }) {
 
   const addToCart = (product) => {
     setCartItems((prev) => {
-      const inStock = prev.find((item) => item.id === product.id);
+      const inCart = prev.find((item) => item.id === product.id);
+      const currentQuantityInCart = inCart ? inCart.quantity : 0;
 
-    if (inStock) {
+      if (currentQuantityInCart >= product.Quantity) {
+        toast.warning(`Only ${product.Quantity} in stock. You already added the maximum.`);
+        return prev; // Don't add more
+      }
+
+    if (inCart) {
       // If product is already in the cart, increase quantity
       return prev.map((item) =>
         item.id === product.id
@@ -30,7 +37,9 @@ export function CartProvider({ children }) {
   const updateQuantity = (id, newQuantity) => {
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
+        item.id === id 
+    ? { ...item, quantity: Math.min(newQuantity, item.Quantity) } 
+    : item
       )
     );
   };
@@ -40,7 +49,8 @@ export function CartProvider({ children }) {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart }}>
+    <CartContext.Provider 
+    value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );

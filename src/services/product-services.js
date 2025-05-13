@@ -45,7 +45,7 @@ import { db } from '../../config/firestore';
     await updateDoc(docRef, product);
     return { id, ...product };
   };
-  
+
   export const subscribeToProducts = (callback) => {
     console.log('Subscribe to furniture product data');
     const collectionRef = collection(db, 'furniture');
