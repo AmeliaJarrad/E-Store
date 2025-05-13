@@ -1,6 +1,7 @@
 
 import classes from './ProductCard.module.scss';
 import { Link } from 'react-router';
+import Button from '../Button/Button';
 
 
  const ProductVariantCard = ({ variant, category, description, id }) => {
@@ -19,6 +20,7 @@ import { Link } from 'react-router';
             {/* <p> Favourite: {isFavourite ? 'Yes' : 'No'}</p>
             <p> Featured: {isFeatured ? 'Yes' : 'No'}</p> */}
             <Link to={id}>See More</Link>
+            
         
         
     

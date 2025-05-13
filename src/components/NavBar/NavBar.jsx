@@ -10,6 +10,9 @@ export default function NavBar() {
         </NavLink>
       </div>
       <div className={classes.nav_group}>
+      <NavLink  className={classes.nav_link} to="/cart">
+          Cart
+        </NavLink>
         <NavLink  className={classes.nav_link} to="/products">
           All Products
         </NavLink>

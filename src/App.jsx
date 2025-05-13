@@ -10,6 +10,8 @@ import ProductForm from './components/ProductForm/ProductForm';
 import ProductPage from './pages/ProductPage/ProductPage';
 import CreateProduct from './pages/CreateProduct/CreateProduct';
 import LiveProductsPage from './pages/LiveProductsPage/LiveProductsPage';
+import CartPage from './pages/CartPage/CartPage';
+import { CartProvider } from './context/CartProvider';
 
 function App() {
   useEffect(() => {
@@ -20,16 +22,18 @@ function App() {
     <>
       <BrowserRouter>
         <ProductsProvider>
+        
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/products" element={<LiveProductsPage />} />
           {/* <Route path="/products" element={<AllProductsPage />} /> */}
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/products/new" element={<CreateProduct />} />
         </Routes>
         </ProductsProvider>
-      
+        
       </BrowserRouter>
     </>
   )

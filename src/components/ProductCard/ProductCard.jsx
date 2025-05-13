@@ -1,5 +1,6 @@
 import classes from './ProductCard.module.scss';
 import { Link } from 'react-router';
+import Button from '../Button/Button';
 
 
 
@@ -26,6 +27,7 @@ export default function ProductCard({ product }) {
         <h5> Quantity in Stock: {product.Quantity}</h5>
         <h5> Price: {product.Price} gold</h5>
         <Link to={product.id}>See More</Link>
+        
         
         
       

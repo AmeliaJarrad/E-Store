@@ -6,10 +6,12 @@ import { useState } from 'react';
 import { deleteProductById, 
         updateProductById } from '../../services/product-services'
 import ProductForm from '../../components/ProductForm/ProductForm';
+import { useCart } from '../../context/CartProvider';
 
 
 const StockEditor = ({productData, resetFetch}) => {
     const navigate = useNavigate();
+    const { addToCart } = useCart();
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
     const closeDeleteModal = () => {
@@ -32,6 +34,8 @@ const StockEditor = ({productData, resetFetch}) => {
         });
     };
 
+   
+
     if (productData.Variants && Array.isArray(productData.Variants)) {
         return productData.Variants.map((variant, index) => (
             <div>
@@ -42,6 +46,7 @@ const StockEditor = ({productData, resetFetch}) => {
                 <p>{productData.Description}</p>
                 <h5> Quantity in Stock: {variant.Quantity}</h5>
                 <h5> Price: {variant.Price} gold</h5>
+                <Button onClick={() => addToCart(variant)}>Add to Cart</Button>
 
                 <Button variants={['warning']} onClick={() => setIsUpdateModalOpen(true)}>
                 Update Product </Button>
@@ -87,7 +92,8 @@ const StockEditor = ({productData, resetFetch}) => {
         </img>
         <p>{productData.Description}</p>
         <p>Quantity in Stock: {productData.Quantity}</p>
-        <p>Price: {productData.Price} gold</p>  
+        <p>Price: {productData.Price} gold</p> 
+        <Button onClick={() => addToCart(productData)}>Add to Cart</Button> 
 
         <Button variants={['warning']} onClick={() => setIsUpdateModalOpen(true)}>
                 Update Product </Button>
