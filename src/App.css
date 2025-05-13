@@ -1,5 +1,9 @@
 #root {
-
+  
+font-family: "Paprika", system-ui;
+font-weight: 400;
+font-style: normal;
+ 
   text-align: center;
 }
 
@@ -7,6 +11,7 @@
 
 
 .card {
+  background-color: rgba(48, 42, 42, 0.87);
   padding: 2em;
 }
 

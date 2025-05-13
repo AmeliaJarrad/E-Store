@@ -6,6 +6,8 @@
     justify-content: space-between;
     border: 3px solid black;
     align-items: center;
+    position: relative;
+    z-index: 2;
   
     &_group {
       display: flex;

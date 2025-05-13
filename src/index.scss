@@ -23,6 +23,13 @@ Use a better box model (opinionated).
 */
 
 html {
+
+  .paprika-regular {
+    font-family: "Paprika", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji'; /* 1 */
   line-height: 1.15; /* 2 */
@@ -41,6 +48,7 @@ Remove the margin in all browsers.
 
 body {
   margin: 0;
+  background-color: rgba(100, 88, 88, 0.514);
 }
 
 /*
